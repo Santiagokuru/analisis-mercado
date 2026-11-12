@@ -1,0 +1,751 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Análisis Competitivo Sierras Chicas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: informe de una columna, con tablas y matrices anchas dentro de contenedores con scroll propio. Paleta: verde pino de sierra sobre neutros fríos. */
+:root{
+  --bg:#F2F4F2; --surface:#FFFFFF; --ink:#15221F; --muted:#51615D; --line:#D5DCD8;
+  --accent:#0E6B5A; --accent-ink:#FFFFFF; --accent-soft:#DDEEE8;
+  --ok:#1B6E44; --ok-bg:#DDF0E4;
+  --press:#23509F; --press-bg:#E0E9F8;
+  --warn:#8A5A08; --warn-bg:#F7EBD0;
+  --bad:#A02F1D; --bad-bg:#F6DFDA;
+  --font-display:'Space Grotesk','Segoe UI',system-ui,sans-serif;
+  --font-body:'Inter','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1715; --surface:#162320; --ink:#E6EEEB; --muted:#9FB1AB; --line:#2B3C38;
+    --accent:#3FBF9F; --accent-ink:#06201A; --accent-soft:#17332D;
+    --ok:#7FD9A3; --ok-bg:#16301F;
+    --press:#8DB2F2; --press-bg:#1A2A47;
+    --warn:#E8BC66; --warn-bg:#3A2D10;
+    --bad:#F0A090; --bad-bg:#40201A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1715; --surface:#162320; --ink:#E6EEEB; --muted:#9FB1AB; --line:#2B3C38;
+  --accent:#3FBF9F; --accent-ink:#06201A; --accent-soft:#17332D;
+  --ok:#7FD9A3; --ok-bg:#16301F;
+  --press:#8DB2F2; --press-bg:#1A2A47;
+  --warn:#E8BC66; --warn-bg:#3A2D10;
+  --bad:#F0A090; --bad-bg:#40201A;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0;
+}
+.wrap{max-width:1040px; margin:0 auto}
+h1,h2,h3,h4{font-family:var(--font-display); line-height:1.2; text-wrap:balance; margin:0}
+h1{font-size:clamp(30px,5vw,46px); font-weight:700; letter-spacing:-0.02em}
+h2{font-size:clamp(22px,3.2vw,28px); font-weight:700; letter-spacing:-0.01em}
+h3{font-size:18px; font-weight:700}
+h4{font-size:15px; font-weight:700}
+p{margin:0}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px; border-radius:4px}
+.eyebrow{font-size:12px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+
+/* encabezado */
+header.top{padding-block:40px 28px; display:flex; flex-direction:column; gap:14px}
+header.top .lede{font-size:clamp(17px,2.2vw,20px); max-width:62ch; color:var(--ink)}
+nav.toc{display:flex; gap:6px; overflow-x:auto; padding-block:10px; border-block:1px solid var(--line); margin-bottom:8px; -webkit-overflow-scrolling:touch}
+nav.toc a{white-space:nowrap; text-decoration:none; color:var(--muted); font-size:14px; font-weight:500; padding:6px 12px; border-radius:999px}
+nav.toc a:hover{background:var(--accent-soft); color:var(--ink)}
+
+section{padding-block:44px 8px; scroll-margin-top:8px}
+section > .sec-head{display:flex; flex-direction:column; gap:6px; margin-bottom:20px}
+section > .sec-head p{max-width:66ch; color:var(--muted)}
+
+/* chips de estado */
+.chip{display:inline-block; font-size:12px; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap; line-height:1.5}
+.chip.ok{background:var(--ok-bg); color:var(--ok)}
+.chip.press{background:var(--press-bg); color:var(--press)}
+.chip.warn{background:var(--warn-bg); color:var(--warn)}
+.chip.bad{background:var(--bad-bg); color:var(--bad)}
+.legend{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; font-size:13px; color:var(--muted)}
+
+/* hechos clave */
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:6px}
+.fact{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:4px; min-width:0}
+.fact b{font-family:var(--font-display); font-size:32px; line-height:1; color:var(--accent)}
+.fact span{font-size:14px; color:var(--muted)}
+
+/* bloque de conclusión */
+.verdict{background:var(--accent); color:var(--accent-ink); border-radius:14px; padding:22px 24px; display:flex; flex-direction:column; gap:8px}
+.verdict h3{color:var(--accent-ink); font-size:20px}
+.verdict p{max-width:70ch}
+.verdict a{color:var(--accent-ink)}
+
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px}
+.grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; min-width:0}
+.card ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px}
+.card li{font-size:15px}
+.card .tier{font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent)}
+
+/* tablas */
+.scroll{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:860px; font-size:14px}
+th,td{text-align:left; vertical-align:top; padding:11px 13px; border-bottom:1px solid var(--line)}
+thead th{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:var(--bg); position:sticky; top:0}
+tbody tr:last-child td{border-bottom:0}
+td:first-child,th:first-child{font-weight:600; min-width:120px}
+td .chip{margin-top:4px}
+td small{display:block; color:var(--muted); margin-top:3px}
+
+/* FODA */
+.foda-block{display:flex; flex-direction:column; gap:12px; margin-bottom:26px}
+.foda{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+.q{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px; min-width:0}
+.q h4{display:flex; align-items:center; gap:8px}
+.q h4 i{font-style:normal; font-family:var(--font-display); width:26px; height:26px; border-radius:6px; display:inline-grid; place-items:center; font-size:14px}
+.q.f h4 i{background:var(--ok-bg); color:var(--ok)}
+.q.d h4 i{background:var(--bad-bg); color:var(--bad)}
+.q.o h4 i{background:var(--press-bg); color:var(--press)}
+.q.a h4 i{background:var(--warn-bg); color:var(--warn)}
+.q ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px}
+.q li{font-size:14.5px}
+
+/* oportunidades */
+.opp{display:grid; grid-template-columns:1fr; gap:12px}
+.opp article{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr); gap:18px}
+.opp article > div{min-width:0; display:flex; flex-direction:column; gap:6px}
+.opp .label{font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+.opp h3{margin-bottom:2px}
+.opp p{font-size:14.5px}
+@media (max-width:760px){ .opp article{grid-template-columns:1fr; gap:12px} }
+
+/* valor de la web */
+.value-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+.value-list .card p{font-size:14.5px}
+.notes{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:8px}
+.notes ul{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px}
+
+/* decisión landing vs sitio */
+.options{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-bottom:18px}
+.opt{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; min-width:0}
+.opt.rec{border:2px solid var(--accent)}
+.opt .score{font-family:var(--font-display); font-size:34px; font-weight:700; line-height:1}
+.opt .bar{height:8px; background:var(--accent-soft); border-radius:999px; overflow:hidden}
+.opt .bar span{display:block; height:100%; background:var(--accent); border-radius:999px; width:0}
+.opt ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px; font-size:14.5px}
+.weights{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px 22px; margin-bottom:18px}
+.weights label{display:flex; flex-direction:column; gap:4px; font-size:14px; font-weight:500}
+.weights label span.v{color:var(--accent); font-weight:600}
+.weights input[type=range]{width:100%; accent-color:var(--accent)}
+.sitemap{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px}
+.page{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; gap:3px; min-width:0}
+.page b{font-size:14.5px}
+.page span{font-size:13px; color:var(--muted)}
+.page.home{background:var(--accent-soft); border-color:var(--accent)}
+
+/* listas de a confirmar */
+.todo{display:flex; flex-direction:column; gap:10px}
+.todo-item{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 12px; align-items:start}
+.todo-item p{font-size:14.5px}
+
+details{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 18px}
+details summary{cursor:pointer; font-weight:600}
+details ul{margin:10px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px; font-size:14.5px}
+
+footer{padding-block:40px 56px; color:var(--muted); font-size:13px}
+@media (prefers-reduced-motion: no-preference){ .opt .bar span{transition:width .35s ease} }
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <span class="eyebrow">Fase 1 · Sierras Chicas, Córdoba · Noviembre 2026</span>
+  <h1>Análisis competitivo para una web de alarmas y cámaras</h1>
+  <p class="lede">De las 7 webs que revisamos, solo una publica un precio de abono, y ninguna tiene una página propia para una localidad de Sierras Chicas. Ahí hay espacio para una web local, directa y transparente.</p>
+  <div class="legend" aria-label="Referencia de estados">
+    <span>Cada dato lleva su estado:</span>
+    <span class="chip ok">Verificado en sitio</span>
+    <span class="chip press">Dato de prensa</span>
+    <span class="chip warn">A confirmar</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Secciones">
+  <a href="#resumen">Resumen</a>
+  <a href="#mapa">Competidores</a>
+  <a href="#auditoria">Auditoría de webs</a>
+  <a href="#foda">FODA</a>
+  <a href="#oportunidades">Oportunidades</a>
+  <a href="#valor">Valor de la web</a>
+  <a href="#decision">Landing o sitio</a>
+  <a href="#pendientes">A confirmar</a>
+  <a href="#fase2">Fase 2</a>
+  <a href="#fuentes">Fuentes</a>
+</nav>
+
+<!-- RESUMEN -->
+<section id="resumen">
+  <div class="sec-head">
+    <span class="eyebrow">Resumen</span>
+    <h2>Qué encontramos y qué recomendamos</h2>
+  </div>
+
+  <div class="verdict">
+    <h3>Recomendación: un sitio liviano de 6 a 9 páginas, con la home armada como landing</h3>
+    <p>Una landing sola no permite tener páginas por localidad ni por servicio, que es donde los competidores locales están más flojos. Un sitio con tienda online no se justifica, porque la venta se cierra por WhatsApp y requiere una visita técnica. El detalle del puntaje está en <a href="#decision">Landing o sitio</a>.</p>
+  </div>
+
+  <div class="facts" style="margin-top:14px">
+    <div class="fact"><b>7</b><span>webs auditadas: Verisure, Prosegur, ADT, X-28, Sigma, CMC y NDV</span></div>
+    <div class="fact"><b>1</b><span>publica un precio de abono (Verisure, "desde $72.999 + IVA")</span></div>
+    <div class="fact"><b>0</b><span>tiene una página propia para una localidad de Sierras Chicas, según las páginas que pudimos leer</span></div>
+  </div>
+
+  <h3 style="margin-top:28px; margin-bottom:12px">Las cinco oportunidades principales</h3>
+  <div class="grid3">
+    <div class="card"><h4>1. Precios "desde" con fecha</h4><p class="small muted">Ningún competidor local publica el precio de su servicio. Un "desde" con fecha de actualización lo cambia.</p></div>
+    <div class="card"><h4>2. Trato directo</h4><p class="small muted">Un solo WhatsApp, con nombre y foto del técnico. Los grandes derivan a un 0800 o a un formulario.</p></div>
+    <div class="card"><h4>3. Páginas por localidad</h4><p class="small muted">Río Ceballos, Unquillo, Salsipuedes, Agua de Oro y más, con trabajos reales de cada una.</p></div>
+    <div class="card"><h4>4. Prueba social propia</h4><p class="small muted">Reseñas de Google, fotos de instalaciones y la credencial X-28 a la vista.</p></div>
+    <div class="card"><h4>5. Respuestas técnicas concretas</h4><p class="small muted">Qué pasa con un corte de luz o de internet. Hoy las FAQ de los competidores son genéricas.</p></div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section id="mapa">
+  <div class="sec-head">
+    <span class="eyebrow">Competidores</span>
+    <h2>Quién compite con vos, en cuatro niveles</h2>
+    <p>Para un cliente de Río Ceballos, el competidor más cercano no es el que tiene más marca, sino el que aparece primero en Google y responde por WhatsApp.</p>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <span class="tier">Nivel 1 · Grandes nacionales</span>
+      <ul>
+        <li><b>Verisure.</b> Más de 87.000 clientes en el país, según un documento de la propia empresa (2024).</li>
+        <li><b>Prosegur Alarms.</b> Opera en 15 provincias y tiene una landing específica para Córdoba.</li>
+        <li><b>ADT.</b> Según prensa, lidera el sector en el país, seguido por Prosegur y Verisure.</li>
+        <li><b>X-28 (central).</b> La marca que respalda tu certificación. Es proveedor y también compite por el mismo cliente final.</li>
+      </ul>
+      <span class="chip press">Dato de prensa y sitios oficiales</span>
+    </div>
+    <div class="card">
+      <span class="tier">Nivel 2 · Regionales de Córdoba</span>
+      <ul>
+        <li><b>Monitora.</b> Dice tener presencia en Río Ceballos, Unquillo, Villa Allende y Mendiolaza, y la homologación N.º 001 de la Policía de Córdoba. Usa cámaras con IA y una red propia.</li>
+        <li><b>Sigma Security.</b> Córdoba Capital, 40 años, tienda online.</li>
+        <li><b>CMC Seguridad.</b> Sucursales en Villa Cabrera y Malagueño.</li>
+        <li><b>24hs Security y Linken.</b> Aparecen en prensa y directorios, pero no encontramos su sitio.</li>
+      </ul>
+      <span class="chip warn">Monitora, 24hs y Linken: a confirmar</span>
+    </div>
+    <div class="card">
+      <span class="tier">Nivel 3 · Locales de Sierras Chicas</span>
+      <ul>
+        <li><b>NDV Seguridad</b> (Villa Allende). Declara 35 años, homologación policial (habilitación n.º 29) y pertenencia a CESEC. Es el competidor directo.</li>
+        <li><b>Punto Seguro.</b> Aparece en un contenido de marca pagado, con cobertura en Unquillo y Río Ceballos.</li>
+        <li><b>Fichas de directorio</b> en Río Ceballos y Unquillo, sin web propia visible.</li>
+      </ul>
+      <span class="chip ok">NDV: verificado en su sitio</span>
+      <span class="chip warn">Punto Seguro y directorios: a confirmar</span>
+    </div>
+    <div class="card">
+      <span class="tier">Nivel 4 · Alternativas indirectas</span>
+      <ul>
+        <li><b>Cámaras económicas de Mercado Libre</b> que el cliente instala solo.</li>
+        <li><b>Instaladores informales</b> que trabajan por recomendación, sin web ni marca.</li>
+        <li><b>Alarmas comunitarias municipales</b> y planes de cámaras públicas, que pueden reducir la urgencia de contratar.</li>
+      </ul>
+      <span class="chip warn">Hipótesis a validar con clientes</span>
+    </div>
+  </div>
+</section>
+
+<!-- AUDITORÍA -->
+<section id="auditoria">
+  <div class="sec-head">
+    <span class="eyebrow">Auditoría de webs</span>
+    <h2>Qué hace cada web, comparado</h2>
+    <p>Leímos la home y entre 2 y 4 páginas internas de cada sitio. No pudimos ver cómo se ven en el celular, por lo que esa dimensión no está evaluada.</p>
+  </div>
+
+  <div class="scroll" role="region" aria-label="Tabla comparativa de webs" tabindex="0">
+    <table>
+      <thead>
+        <tr><th>Sitio</th><th>Precio publicado</th><th>WhatsApp</th><th>Presencia local</th><th>Prueba social</th><th>Fallos visibles</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Verisure<span class="chip ok">Verificado</span></td>
+          <td>Sí: "desde $72.999 + IVA" mensual. El valor final depende de un estudio de seguridad.</td>
+          <td>No lo vimos</td>
+          <td>10 páginas por ciudad, entre ellas Córdoba. Ninguna de Sierras Chicas.</td>
+          <td>3.639 opiniones de Google, certificaciones ISO y AENOR</td>
+          <td>Garantía "de por vida" en una página y "mientras el servicio esté activo" en otra.<small>La home se leyó de forma parcial.</small></td>
+        </tr>
+        <tr>
+          <td>Prosegur<span class="chip ok">Verificado</span></td>
+          <td>No</td>
+          <td>Sí, con un número del área de Buenos Aires para todo el país</td>
+          <td>Landing de Córdoba con barrios de la capital. Sin dirección ni teléfono local.</td>
+          <td>10 reseñas nacionales (eKomi), ninguna de Córdoba</td>
+          <td>Fecha "31.02.26" en la promo, "ciudad ciudad" en un título, bloque "sucursal más cercana" vacío. No vende cámaras sueltas.</td>
+        </tr>
+        <tr>
+          <td>ADT<span class="chip ok">Verificado</span></td>
+          <td>No. Hay un cotizador de 5 pasos que termina en una llamada.</td>
+          <td>No lo vimos</td>
+          <td>5 sucursales y 6 agentes nacionales. Sin páginas por localidad.</td>
+          <td>Sin reseñas ni casos visibles en lo leído</td>
+          <td>Tres formularios casi idénticos, dos apps distintas, mezcla de "vos" y "usted", copyright 2024.</td>
+        </tr>
+        <tr>
+          <td>X-28<span class="chip ok">Verificado</span></td>
+          <td>No. Tres planes sin monto que llevan al cotizador.</td>
+          <td>Sí, con dos números y horarios distintos</td>
+          <td>Contador de ciudades en "+0". Sin buscador de instaladores.</td>
+          <td>5 testimonios con nombre de pila, sin fecha. "Más de 570.000 familias" declarado.</td>
+          <td>Textos sin completar (<code>${card.title}</code>) en la home. La página de especialistas no se pudo leer.</td>
+        </tr>
+        <tr>
+          <td>Sigma Security<span class="chip warn">Solo home</span></td>
+          <td>Solo en la tienda (cajas y cerraduras). Alarmas y cámaras: no.</td>
+          <td>Sí</td>
+          <td>URLs "en-cordoba" por servicio. No nombra Sierras Chicas.</td>
+          <td>"+10.000 clientes" y logos, sin reseñas. Declara 40 años y homologación policial.</td>
+          <td>Horarios que no coinciden entre el texto y las sucursales. Instalación ambigua.<small>El sitio bloqueó las demás páginas (error 429).</small></td>
+        </tr>
+        <tr>
+          <td>CMC Seguridad<span class="chip ok">Verificado</span></td>
+          <td>No. Dice "abono a tu medida".</td>
+          <td>Sí, con asistente flotante y cotizador que abre WhatsApp</td>
+          <td>Sucursales en Villa Cabrera y Malagueño. No nombra Sierras Chicas.</td>
+          <td>Sin reseñas, años ni marcas</td>
+          <td>Sin precios ni credenciales visibles.</td>
+        </tr>
+        <tr>
+          <td>NDV Seguridad<span class="chip ok">Verificado</span></td>
+          <td>No</td>
+          <td>Sí, con dos números distintos</td>
+          <td>Nombra 10 localidades en una FAQ. Ninguna tiene página propia.</td>
+          <td>18 reseñas de Google, 35 años, habilitación n.º 29, logos de colegios</td>
+          <td>Solo 2 páginas reales. No nombra marcas. El teléfono del enlace no coincide con el visible.</td>
+        </tr>
+        <tr>
+          <td>Monitora, 24hs Security, Linken<span class="chip warn">A confirmar</span></td>
+          <td colspan="5" class="muted">No encontramos un sitio oficial que cargue. Lo que sabemos de Monitora viene de una nota de prensa. Falta completar esta fila con sus perfiles de Google, Instagram o Facebook.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notes" style="margin-top:16px">
+    <h4>Lo que se repite en las webs de los grandes</h4>
+    <ul>
+      <li>Todo el recorrido termina en "te llamamos" o en un formulario. El cliente no puede comparar sin dar sus datos.</li>
+      <li>Lo "local" se reduce a nombrar una ciudad. Ninguna página muestra trabajos, técnicos ni tiempos de llegada reales de Sierras Chicas.</li>
+      <li>El WhatsApp aparece en dos de los cuatro nacionales (Prosegur y X-28), con números pensados para todo el país.</li>
+      <li>Hay descuidos de edición en todas. Una web local bien cuidada ya se ve más confiable.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FODA -->
+<section id="foda">
+  <div class="sec-head">
+    <span class="eyebrow">FODA</span>
+    <h2>Dos lecturas: la competencia y tu negocio</h2>
+    <p>La primera matriz resume cómo está el terreno. La segunda es la que usamos para decidir qué construir.</p>
+  </div>
+
+  <div class="foda-block">
+    <h3>A. La competencia y sus webs</h3>
+    <div class="foda">
+      <div class="q f"><h4><i>F</i>Fortalezas de los competidores</h4>
+        <ul>
+          <li>Marca reconocida y volumen: Verisure con 3.639 reseñas, X-28 con "más de 570.000 familias" declaradas.</li>
+          <li>Certificaciones y apps propias, como ISO y AENOR en Verisure, o la app de Prosegur.</li>
+          <li>NDV suma antigüedad y credenciales locales: 35 años y habilitación policial.</li>
+          <li>Promociones con financiación en cuotas.</li>
+        </ul>
+      </div>
+      <div class="q d"><h4><i>D</i>Debilidades de sus webs</h4>
+        <ul>
+          <li>Casi nadie publica precios ni abonos.</li>
+          <li>Formularios repetidos y llamadas en lugar de un canal directo.</li>
+          <li>Nada de contenido local real: sin trabajos, técnicos ni tiempos.</li>
+          <li>Errores de edición visibles y datos de contacto inconsistentes.</li>
+        </ul>
+      </div>
+      <div class="q o"><h4><i>O</i>Oportunidades para un entrante local</h4>
+        <ul>
+          <li>Ninguna web cubre Sierras Chicas localidad por localidad.</li>
+          <li>Prosegur no vende cámaras sueltas, y NDV y CMC no nombran marcas de cámaras.</li>
+          <li>Las promociones de Prosegur y Verisure vencen a fin de noviembre de 2026.</li>
+          <li>Google está habilitando WhatsApp en la ficha del negocio, aunque todavía no a todos.</li>
+        </ul>
+      </div>
+      <div class="q a"><h4><i>A</i>Amenazas del mercado</h4>
+        <ul>
+          <li>Los grandes tienen presupuesto de publicidad y reseñas acumuladas.</li>
+          <li>Monitora ofrece cámaras con IA y una red propia, y dice cubrir las mismas localidades.</li>
+          <li>La inflación desactualiza cualquier precio publicado.</li>
+          <li>Cámaras baratas de instalar uno mismo y planes municipales de cámaras.</li>
+        </ul>
+      </div>
+    </div>
+    <div><span class="chip ok">Fortalezas y debilidades: verificadas en sitio</span> <span class="chip warn">Amenaza de Monitora: dato de prensa, a confirmar</span></div>
+  </div>
+
+  <div class="foda-block">
+    <h3>B. Tu negocio</h3>
+    <div class="foda">
+      <div class="q f"><h4><i>F</i>Fortalezas</h4>
+        <ul>
+          <li>Certificación X-28, una marca nacional con más de 40 años según su web.</li>
+          <li>Equipo de tres o más personas, que permite sostener visitas y servicio técnico.</li>
+          <li>Ficha de Google activa y fotos propias de instalaciones.</li>
+          <li>Trato directo y conocimiento de la zona.</li>
+        </ul>
+      </div>
+      <div class="q d"><h4><i>D</i>Debilidades</h4>
+        <ul>
+          <li>La marca X-28 no es tuya: el uso del nombre y logo hay que confirmarlo.</li>
+          <li>Menos años y credenciales visibles que NDV o Monitora, si no tenés habilitación propia.</li>
+          <li>El abono lo define X-28, así que quizás no controles el precio final.</li>
+          <li>Sin web hoy: dependés de la ficha de Google y del boca a boca.</li>
+        </ul>
+      </div>
+      <div class="q o"><h4><i>O</i>Oportunidades</h4>
+        <ul>
+          <li>Ser el primero en publicar precios "desde", marcas instaladas y trabajos por localidad.</li>
+          <li>Cubrir cámaras sueltas más monitoreo, un nicho que Prosegur excluye.</li>
+          <li>Atender casas de fin de semana, muy comunes en la zona (hipótesis a validar).</li>
+          <li>Convertir cada reseña de Google en contenido para la web.</li>
+        </ul>
+      </div>
+      <div class="q a"><h4><i>A</i>Amenazas</h4>
+        <ul>
+          <li>NDV puede mejorar su web rápido: ya tiene la autoridad y las reseñas.</li>
+          <li>Que X-28 cambie las condiciones para instaladores o venda directo en la zona.</li>
+          <li>Prometer plazos que el equipo no cumple y dañar la reputación.</li>
+          <li>Precios publicados que queden viejos y generen reclamos.</li>
+        </ul>
+      </div>
+    </div>
+    <div><span class="chip warn">Casi todo este bloque sale de tus respuestas y requiere tu confirmación</span></div>
+  </div>
+</section>
+
+<!-- OPORTUNIDADES -->
+<section id="oportunidades">
+  <div class="sec-head">
+    <span class="eyebrow">Oportunidades</span>
+    <h2>Siete formas de aportar valor, con su evidencia</h2>
+    <p>Cada una dice qué haríamos, por qué y qué decisión de diseño deja abierta para la Fase 2.</p>
+  </div>
+
+  <div class="opp">
+    <article>
+      <div><h3>1. Precios "desde" con fecha de actualización</h3><p>Mostrar el precio de partida de la instalación y un rango del abono, y ejemplos de armado según el tipo de casa.</p></div>
+      <div><span class="label">Evidencia</span><p>Solo Verisure publica un "desde". Ninguna web local lo hace. El mercado ronda $50.000 a $350.000 de instalación y $45.400 a $90.000 de abono + IVA, según iProfesional.</p><span class="chip press">Dato de prensa</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Sección de precios con fecha visible y aviso de "sujeto a visita". Definir qué montos podés publicar y cuáles fija X-28.</p></div>
+    </article>
+    <article>
+      <div><h3>2. Trato directo con quien instala</h3><p>Un solo número de WhatsApp, con nombre y foto del equipo, horarios claros y respuesta humana.</p></div>
+      <div><span class="label">Evidencia</span><p>En lo leído, ADT no muestra WhatsApp. X-28 y NDV muestran dos números cada uno. Prosegur usa un número del área de Buenos Aires para todo el país.</p><span class="chip ok">Verificado en sitio</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Botón de WhatsApp siempre visible en el celular. Prometer solo los plazos que el equipo puede cumplir.</p></div>
+    </article>
+    <article>
+      <div><h3>3. Una página por localidad</h3><p>Río Ceballos, Unquillo, Salsipuedes, La Granja, Agua de Oro, Ascochinga, Villa Allende, Mendiolaza y Saldán, cada una con trabajos y tiempos de llegada reales.</p></div>
+      <div><span class="label">Evidencia</span><p>NDV nombra 10 localidades en una FAQ, sin páginas propias. Prosegur y Verisure cubren Córdoba como ciudad, no Sierras Chicas.</p><span class="chip ok">Verificado en sitio</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Una plantilla de localidad reutilizable, con un hub de zonas. Arrancar con las 3 o 4 donde más trabajás.</p></div>
+    </article>
+    <article>
+      <div><h3>4. Prueba social propia</h3><p>Reseñas de Google, fotos de instalaciones con permiso del cliente y la credencial X-28 con su número o certificado.</p></div>
+      <div><span class="label">Evidencia</span><p>X-28 muestra 5 testimonios sin fecha. NDV tiene 18 reseñas de Google. Cuántas tenés vos hoy no lo sabemos.</p><span class="chip warn">Tu cantidad de reseñas: a confirmar</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Bloque de reseñas con fecha y barrio. Pedir permiso por escrito para cada foto o caso.</p></div>
+    </article>
+    <article>
+      <div><h3>5. Respuestas técnicas concretas</h3><p>Qué pasa en un corte de luz o de internet, cuánto consume una cámara y qué cubre exactamente el servicio técnico.</p></div>
+      <div><span class="label">Evidencia</span><p>Las FAQ de Verisure y Prosegur son genéricas ("distintas vías de comunicación"). La de NDV es más concreta, pero es la única.</p><span class="chip ok">Verificado en sitio</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Una FAQ por servicio, escrita con números, que además ayude al posicionamiento en Google.</p></div>
+    </article>
+    <article>
+      <div><h3>6. Cámaras sueltas y monitoreo, con marcas a la vista</h3><p>Ofrecer cámaras con o sin abono, nombrando las marcas que realmente instalás.</p></div>
+      <div><span class="label">Evidencia</span><p>Prosegur dice que no vende cámaras por separado. NDV, CMC y X-28 no nombran marcas de cámaras en lo leído.</p><span class="chip ok">Verificado en sitio</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Página de cámaras con comparativa simple y honesta. Definir con qué marcas querés que te asocien.</p></div>
+    </article>
+    <article>
+      <div><h3>7. Casas de fin de semana</h3><p>Verificación remota, aviso de ingreso y mantenimiento para viviendas que pasan días vacías.</p></div>
+      <div><span class="label">Evidencia</span><p>Ninguna web revisada habla de este caso. La idea surge de cómo es la zona, no de un dato medido.</p><span class="chip warn">Hipótesis a validar</span></div>
+      <div><span class="label">Decisión para Fase 2</span><p>Probarla primero en una sección corta y medir si genera consultas. Si funciona, crece a página propia.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- VALOR DE LA WEB -->
+<section id="valor">
+  <div class="sec-head">
+    <span class="eyebrow">Valor de la web</span>
+    <h2>Por qué tener una web propia vale la pena</h2>
+    <p>Una web no vende sola. Su función es que te encuentren, que confíen en vos y que escriban. Estos son los argumentos y también sus límites.</p>
+  </div>
+
+  <div class="value-list">
+    <div class="card">
+      <h4>Se busca antes de contratar</h4>
+      <p>Según un estudio de CACE de 2024, quienes compran online buscan sobre todo detalles del producto o servicio (56%) y precios (55%). Un 29% mira reseñas. Es un dato de comercio electrónico en general, no de seguridad en particular.</p>
+      <span class="chip press">Dato de estudio, no específico del rubro</span>
+    </div>
+    <div class="card">
+      <h4>Es un activo propio</h4>
+      <p>Tu ficha de Google, un directorio o la web de X-28 son espacios que no controlás. Tu web te deja decidir qué mostrar y no depende de nadie.</p>
+    </div>
+    <div class="card">
+      <h4>Diferencia frente a los grandes</h4>
+      <p>Los grandes ganan por marca. Vos podés ganar por detalle: precios, trabajos reales y respuestas concretas, justo lo que sus webs no muestran.</p>
+      <span class="chip ok">Respaldado por la auditoría</span>
+    </div>
+    <div class="card">
+      <h4>Posicionamiento local</h4>
+      <p>Páginas por localidad y por servicio permiten aparecer en búsquedas como "alarmas en Unquillo". Una sola página no puede cubrir tantas búsquedas.</p>
+    </div>
+    <div class="card">
+      <h4>Filtra y ahorra tiempo</h4>
+      <p>Una FAQ buena responde lo que hoy se pregunta una y otra vez por WhatsApp. El cliente llega con dudas más precisas.</p>
+    </div>
+    <div class="card">
+      <h4>Es un lugar para la prueba social</h4>
+      <p>Las reseñas, fotos y casos quedan reunidos en un solo sitio, con tu propio criterio de presentación.</p>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="notes">
+      <h4>Lo que la web NO resuelve</h4>
+      <ul>
+        <li>No reemplaza la ficha de Google, que sigue siendo clave para aparecer en Google Maps.</li>
+        <li>No cierra la venta sola: hace falta la visita técnica y alguien que responda rápido.</li>
+        <li>No sirve si nadie contesta el WhatsApp. Un contacto lento arruina la confianza que la web construyó.</li>
+        <li>Requiere mantenimiento: precios, fotos y reseñas se actualizan.</li>
+      </ul>
+    </div>
+    <div class="notes">
+      <h4>Cómo medir si funciona</h4>
+      <ul>
+        <li>Clics al botón de WhatsApp, por página.</li>
+        <li>Consultas que mencionan "vi su web".</li>
+        <li>Posición en búsquedas como "alarmas Río Ceballos".</li>
+        <li>Reseñas nuevas de Google por mes.</li>
+        <li>Visitas técnicas agendadas a partir de consultas web.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DECISIÓN -->
+<section id="decision">
+  <div class="sec-head">
+    <span class="eyebrow">Landing o sitio</span>
+    <h2>Qué conviene construir</h2>
+    <p>Comparamos tres opciones con cinco criterios. Los puntajes de 1 a 5 son un criterio propio y los pesos son ajustables: movelos y mirá si cambia la conclusión.</p>
+  </div>
+
+  <div class="weights" role="group" aria-label="Ponderación de criterios">
+    <label for="w0">Genera confianza <span class="v" id="v0"></span><input type="range" id="w0" min="0" max="40" step="5" value="25"></label>
+    <label for="w1">Lleva a WhatsApp <span class="v" id="v1"></span><input type="range" id="w1" min="0" max="40" step="5" value="20"></label>
+    <label for="w2">Posiciona por localidad <span class="v" id="v2"></span><input type="range" id="w2" min="0" max="40" step="5" value="25"></label>
+    <label for="w3">Bajo costo de mantener <span class="v" id="v3"></span><input type="range" id="w3" min="0" max="40" step="5" value="15"></label>
+    <label for="w4">Credibilidad frente a NDV y los grandes <span class="v" id="v4"></span><input type="range" id="w4" min="0" max="40" step="5" value="15"></label>
+  </div>
+
+  <div class="options" id="options"></div>
+
+  <div class="grid2">
+    <div class="notes">
+      <h4>Estructura propuesta para el sitio liviano</h4>
+      <p class="small muted">La home funciona como una landing: propuesta, precios "desde", reseñas y WhatsApp. El resto la sostiene.</p>
+      <div class="sitemap" style="margin-top:8px">
+        <div class="page home"><b>Home</b><span>Estructura de landing</span></div>
+        <div class="page"><b>Alarma monitoreada X-28</b><span>Planes, qué incluye, abono</span></div>
+        <div class="page"><b>Cámaras</b><span>Marcas, kits, con o sin abono</span></div>
+        <div class="page"><b>Sensores e iluminación exterior</b><span>Perímetro sin cerco eléctrico</span></div>
+        <div class="page"><b>Zonas</b><span>Hub más una página por localidad</span></div>
+        <div class="page"><b>Precios</b><span>"Desde" y ejemplos de armado</span></div>
+        <div class="page"><b>Trabajos y reseñas</b><span>Fotos, casos y Google</span></div>
+        <div class="page"><b>Guías y preguntas</b><span>FAQ técnica por servicio</span></div>
+        <div class="page"><b>Contacto</b><span>WhatsApp, mapa, horarios</span></div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Cuándo cambiaría la recomendación</h4>
+      <ul>
+        <li><b>Si querés vender cámaras online</b> con pago y envío, sube el valor de un sitio con tienda. Hoy no lo recomendamos porque la instalación exige una visita.</li>
+        <li><b>Si solo vas a hacer una campaña puntual</b> con publicidad, una landing separada para esa oferta rinde más que el sitio completo.</li>
+        <li><b>Si no podés mantener nada,</b> arrancá con la home más 3 páginas de localidad y sumá el resto de a poco.</li>
+      </ul>
+      <p class="small muted">Un artículo de terceros reporta que una landing convierte mejor en publicidad paga y un sitio completo, mejor en búsqueda orgánica. No verificamos su metodología, por lo que no la usamos como base.</p>
+      <span class="chip warn">Cifras de terceros: no verificadas</span>
+    </div>
+  </div>
+</section>
+
+<!-- PENDIENTES -->
+<section id="pendientes">
+  <div class="sec-head">
+    <span class="eyebrow">A confirmar</span>
+    <h2>Puntos que necesitan tu respuesta</h2>
+    <p>Cambian lo que se puede prometer en la web, así que conviene resolverlos antes del diseño.</p>
+  </div>
+  <div class="todo">
+    <div class="todo-item"><span class="chip warn">Marca</span><p><b>Permiso para usar el nombre y logo de X-28.</b> No pudimos leer la página de especialistas de X-28 (se carga con JavaScript). Conviene pedir por escrito qué texto y qué logo se pueden usar.</p></div>
+    <div class="todo-item"><span class="chip warn">Credenciales</span><p><b>¿Tenés habilitación policial propia o solo la de X-28?</b> NDV muestra la suya (n.º 29) y Monitora la suya (n.º 001). Si tenés una, mostrala con su número.</p></div>
+    <div class="todo-item"><span class="chip warn">Precios</span><p><b>¿Qué montos podés publicar?</b> Falta saber si el abono lo fija X-28 o si vos tenés margen, y con qué frecuencia podrías actualizar.</p></div>
+    <div class="todo-item"><span class="chip warn">Ficha</span><p><b>Una ficha de directorio.</b> En sierraschicas.com.ar figura "Ramon Brunello, Seguridad Electrónica" en Salk 30, Río Ceballos, reclamada, sin web y sin reseñas. Si es tuya, conviene actualizarla; si no, la descartamos como competencia.</p></div>
+    <div class="todo-item"><span class="chip warn">Reseñas</span><p><b>¿Cuántas reseñas de Google tenés y de qué zonas?</b> Define cuánta prueba social podés mostrar desde el día uno.</p></div>
+    <div class="todo-item"><span class="chip warn">Competencia</span><p><b>Completar Monitora, 24hs Security, Linken y Punto Seguro.</b> Si tenés sus perfiles de Instagram, Facebook o Google, los sumamos a la auditoría.</p></div>
+  </div>
+
+  <details style="margin-top:16px">
+    <summary>Límites de este relevamiento</summary>
+    <ul>
+      <li>No evaluamos cómo se ve ninguna web en el celular. Las herramientas devolvieron texto, no la pantalla.</li>
+      <li>La home de Verisure se leyó de forma parcial.</li>
+      <li>De Sigma Security solo se leyó la home. El resto del sitio devolvió un error 429.</li>
+      <li>La página de especialistas de X-28 no se pudo leer.</li>
+      <li>No encontramos sitios oficiales de Monitora, 24hs Security ni Linken.</li>
+      <li>Los precios de prensa son promedios del país, no de Córdoba.</li>
+      <li>No hubo estudios sobre cómo se contrata un servicio de seguridad local en Argentina. Usamos datos de comercio general.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- FASE 2 -->
+<section id="fase2">
+  <div class="sec-head">
+    <span class="eyebrow">Fase 2</span>
+    <h2>Qué queda decidido y qué sigue</h2>
+  </div>
+  <div class="grid2">
+    <div class="notes">
+      <h4>Decisiones tomadas</h4>
+      <ul>
+        <li>Sitio liviano de 6 a 9 páginas, con la home armada como landing.</li>
+        <li>Objetivo inicial: confianza y consultas por WhatsApp.</li>
+        <li>Posicionamiento: instalador certificado X-28, cercano y de trato directo.</li>
+        <li>Cobertura: toda Sierras Chicas, empezando por las localidades donde más trabajás.</li>
+        <li>Sin tienda online y sin cerco eléctrico en la oferta.</li>
+      </ul>
+    </div>
+    <div class="notes">
+      <h4>Para definir en la Fase 2</h4>
+      <ul>
+        <li>Nombre comercial, logo y cómo se combina con la marca X-28.</li>
+        <li>Estilo visual y tono de comunicación.</li>
+        <li>Qué precios se publican y cómo se muestran.</li>
+        <li>Qué marcas de cámaras se destacan.</li>
+        <li>Si el objetivo se amplía a solicitar una visita con fecha.</li>
+        <li>Presupuesto, dominio y quién mantiene el contenido.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes">
+  <div class="sec-head">
+    <span class="eyebrow">Fuentes</span>
+    <h2>De dónde sale cada dato</h2>
+  </div>
+  <div class="grid2">
+    <div class="notes">
+      <h4>Sitios revisados</h4>
+      <ul>
+        <li><a href="https://www.verisure.com.ar/precio-alarma" target="_blank" rel="noopener">Verisure Argentina, precios</a></li>
+        <li><a href="https://www.prosegur.com.ar/hogares/sucursales/alarmas-en-cordoba" target="_blank" rel="noopener">Prosegur, alarmas en Córdoba</a></li>
+        <li><a href="https://www.adt.com.ar/calculadora/" target="_blank" rel="noopener">ADT Argentina, cotizador</a></li>
+        <li><a href="https://x-28.com/" target="_blank" rel="noopener">X-28 Alarmas</a></li>
+        <li><a href="https://sigmasecurity.com.ar/" target="_blank" rel="noopener">Sigma Security</a></li>
+        <li><a href="https://cmcseguridad.com.ar/" target="_blank" rel="noopener">CMC Seguridad</a></li>
+        <li><a href="https://nedv.com.ar/" target="_blank" rel="noopener">NDV Seguridad</a></li>
+        <li><a href="https://www.sierraschicas.com.ar/item/ramon-brunello-seguridad-electronica/" target="_blank" rel="noopener">Ficha en Sierras Chicas Online</a></li>
+      </ul>
+    </div>
+    <div class="notes">
+      <h4>Prensa y estudios</h4>
+      <ul>
+        <li><a href="https://infonegocios.info/plus/monitora-se-reinventa-con-ia-camaras-que-funcionan-como-alarmas-y-una-red-propia-para-monitorear-hogares-y-empresas" target="_blank" rel="noopener">Infonegocios sobre Monitora</a></li>
+        <li><a href="https://www.iprofesional.com/finanzas/464004-alarmas-para-el-hogar-costos-de-proteger-casas-y-departamentos" target="_blank" rel="noopener">iProfesional, costos de alarmas para el hogar</a></li>
+        <li><a href="https://mercado.com.ar/noticias/cuanto-cuesta-instalar-una-alarma-en-una-casa-en-argentina-en-2026" target="_blank" rel="noopener">Mercado, cuánto cuesta instalar una alarma en 2026</a></li>
+        <li><a href="https://www.cba24n.com.ar/contenido-de-marca/alarmas-en-cordoba--proteccion-integral-para-hogares--comercios-e-industrias_a69412d090fcf380e7144e149" target="_blank" rel="noopener">Cba24n, contenido de marca sobre Punto Seguro</a></li>
+        <li><a href="https://cace.org.ar/wp-content/uploads/2025/03/2024_anual_informe_Tendencias-en-eCommerce.pdf" target="_blank" rel="noopener">CACE, Tendencias en eCommerce 2024</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>Fase 1 de 3. Los datos de sitios se leyeron en noviembre de 2026 y pueden cambiar.</footer>
+
+</div>
+
+<script>
+(function(){
+  var criteria = ['Genera confianza','Lleva a WhatsApp','Posiciona por localidad','Bajo costo de mantener','Credibilidad frente a NDV y los grandes'];
+  var opts = [
+    {name:'A. Landing única', scores:[3,5,1,5,2], rec:false,
+      pros:['Rápida y barata de mantener','Excelente para llevar a WhatsApp'],
+      cons:['No permite páginas por localidad','Poco espacio para precios, trabajos y FAQ']},
+    {name:'B. Sitio liviano, 6 a 9 páginas', scores:[4,5,4,4,4], rec:true,
+      pros:['Una página por localidad y por servicio','Home con estructura de landing','Mantenimiento acotado'],
+      cons:['Exige actualizar precios y reseñas','Requiere contenido real de cada zona']},
+    {name:'C. Sitio completo con tienda', scores:[4,3,5,2,4], rec:false,
+      pros:['Máximo alcance de búsqueda','Venta de cámaras online'],
+      cons:['Mucho mantenimiento y stock','La instalación igual necesita visita, así que el carrito suma poco']}
+  ];
+  var sliders = [0,1,2,3,4].map(function(i){return document.getElementById('w'+i)});
+  var host = document.getElementById('options');
+
+  function weights(){ return sliders.map(function(s){return Number(s.value)}); }
+
+  function render(){
+    var w = weights();
+    var total = w.reduce(function(a,b){return a+b},0);
+    sliders.forEach(function(s,i){
+      var pct = total ? Math.round(w[i]/total*100) : 0;
+      document.getElementById('v'+i).textContent = pct + '%';
+    });
+    var results = opts.map(function(o){
+      var sum = 0;
+      for(var i=0;i<5;i++){ sum += w[i]*o.scores[i]; }
+      return total ? sum/total : 0;
+    });
+    var best = results.indexOf(Math.max.apply(null,results));
+    host.innerHTML = '';
+    opts.forEach(function(o,idx){
+      var el = document.createElement('div');
+      el.className = 'opt' + (idx===best ? ' rec' : '');
+      var s = results[idx];
+      var tag = idx===best ? '<span class="chip ok">Mejor puntaje con estos pesos</span>' : '';
+      var scoreLine = o.scores.map(function(v,i){return criteria[i]+': '+v}).join(' · ');
+      el.innerHTML =
+        '<h3>'+o.name+'</h3>' + tag +
+        '<div class="score">'+s.toFixed(1)+'<span class="muted small"> / 5</span></div>' +
+        '<div class="bar" role="img" aria-label="Puntaje '+s.toFixed(1)+' de 5"><span style="width:'+(s/5*100)+'%"></span></div>' +
+        '<ul>'+o.pros.map(function(p){return '<li>'+p+'</li>'}).join('')+o.cons.map(function(p){return '<li class="muted">'+p+'</li>'}).join('')+'</ul>' +
+        '<p class="small muted">'+scoreLine+'</p>';
+      host.appendChild(el);
+    });
+  }
+  sliders.forEach(function(s){ s.addEventListener('input', render); });
+  render();
+})();
+</script>
+
+</body></html>
